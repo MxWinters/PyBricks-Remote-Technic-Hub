@@ -1,5 +1,5 @@
 # PyBricks Remote Controlled Technic Hub
-Pybricks software for using the PoweredUp Remote with the LEGO Technic hub. This has been written for use with my motorised 42110 Land Rover set but can be used on any model that has 2 drive motors and 1 steer motor such as the 42099 4X4 X-treme Off-Roader set.
+Pybricks software for using the PoweredUp Remote with the Technic hub. This has been written for use with my motorised 42110 Land Rover set but can be used on any model that has 2 drive motors and 1 steer motor such as the 42099 4X4 X-treme Off-Roader set.
 
 The code allows for 2 different control modes, Precision Mode and Bang Bang Mode.
 Precision Mode is basically a speed controller for the drive motors and increments the motor speed by 10%. It also increments the steering motor by 10°.
