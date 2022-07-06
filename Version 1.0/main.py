@@ -120,7 +120,7 @@ def EndStopFlashRed():
     hub.light.on(Color.RED)
     remote.light.on(Color.RED)
     wait(250)
-    #then resets back to the corrent colour for the controller mode
+    #then resets back to the correct colour for the controller mode
     if controllerMode == 1:
         hub.light.on(Color.GREEN)
         remote.light.on(Color.GREEN)
