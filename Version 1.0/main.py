@@ -223,13 +223,14 @@ while True:
 
     ### Emergency Stop - Left Red Button
     if Button.LEFT in pressed or Button.RIGHT in pressed:
-        drive_motor_speed = 0
-        drive1.dc(0)
-        drive2.dc(0)
-        steer_angle = 0
-        steer.run_target(2400, 0, Stop.BRAKE, wait = False)
-        print("Emergency stop button pressed, setting drive motor speed to 0 and returning steering motor to 0")
-        EmStopFlash()
+        if drive_motor_speed != 0 or steer_angle != 0:
+            drive_motor_speed = 0
+            drive1.dc(0)
+            drive2.dc(0)
+            steer_angle = 0
+            steer.run_target(2400, 0, Stop.BRAKE, wait = False)
+            print("Emergency stop button pressed, setting drive motor speed to 0 and returning steering motor to 0")
+            EmStopFlash()
 
 
     # Mode Selector - Centre Green button
