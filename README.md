@@ -15,4 +15,4 @@ Simply download the main.py inside the "Version 1.0" folder to your device, open
 
 
 # Bugs / Issues
-Should you have any issue with it, send my a message on WhatsApp or Facebook and Ill look into it.
+Should you have any issue with it, send me a message on WhatsApp or Facebook and Ill look into it.
