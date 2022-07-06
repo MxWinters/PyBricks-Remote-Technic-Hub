@@ -104,7 +104,7 @@ print("Battery voltage: " + str(hub.battery.voltage()) + "mV")
 print("Battery current: " + str(hub.battery.current()) + "mA")
 print("Hub Ready")
 wait(1000)
-#sets controller mode to that selected above
+#sets LED colour to the selected above
 if controllerMode == 1:
     hub.light.on(Color.GREEN)
     remote.light.on(Color.GREEN)
