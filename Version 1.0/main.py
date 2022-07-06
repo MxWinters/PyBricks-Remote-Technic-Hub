@@ -222,7 +222,7 @@ while True:
         steer.run_target(2400, steer_angle, Stop.BRAKE, wait = False)      
 
 
-    ### Emergency Stop - Left Red Button
+    ### Emergency Stop - Left Or Right Red Button
     if Button.LEFT in pressed or Button.RIGHT in pressed:
         if drive_motor_speed != 0 or steer_angle != 0:
             drive_motor_speed = 0
