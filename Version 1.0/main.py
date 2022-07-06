@@ -40,7 +40,7 @@ hub = TechnicHub()
 remote = Remote()
 #change the text inside the "" to set name on remote
 #15 character limit 
-remote.name("MxRemote")
+remote.name("RemoteNameHere")
 
 # Update Console & LED's
 print("C+ Remote Speed Controller - Version 1.0")
