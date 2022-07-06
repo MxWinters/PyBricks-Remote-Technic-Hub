@@ -15,4 +15,4 @@ Simply download to your device, open it with the PyBricks app or with Chrome, co
 
 
 # Bugs / Issues
-Should you have any issue with it, send me a message on WhatsApp or Facebook and Ill look into it.
+Should you have any issue with it, send me a message on WhatsApp/Facebook/Eurobricks or submit an issue on the Issues tab on GitHub and Ill look into it.
