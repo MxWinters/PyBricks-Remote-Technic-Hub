@@ -180,7 +180,7 @@ while True:
             elif drive_motor_speed == -100:
                 EndStopFlashRed()
                 print("Motors already running at full speed.")
-    ### Bang Bang Mode
+    # Bang Bang Mode
     elif controllerMode == 2:
         if Button.LEFT_PLUS in pressed:
             drive_motor_speed = 100
@@ -212,6 +212,7 @@ while True:
                 wait(switch_debounce_time)
             else:
                 EndStopFlashRed()
+    # Bang Bang Mode
     elif controllerMode == 2:
         steer_angle  = 0
         if Button.RIGHT_PLUS in pressed:
