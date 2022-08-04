@@ -6,7 +6,7 @@ Precision Mode is basically a speed controller for the drive motors and incremen
 Bang Bang Mode acts as a simple on/off controller for the drive motors and turns the steering motor all the way to the endstop.
 
 # Install
-Simply download to your device, open <Version 1.0/main.py> with the PyBricks app or PyBricks website with Chrome, configure it as per below and then flash the code to the Technic Hub in the normal way.
+Simply download to your device, open <Version 1/main.py> with the PyBricks app or PyBricks website with Chrome, configure it as per below and then flash the code to the Technic Hub in the normal way.
 
 # Configuration
 1. Set which Controller Mode you want the hub to start with in the Set Startup Controller Mode section.
