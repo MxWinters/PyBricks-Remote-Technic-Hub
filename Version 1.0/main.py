@@ -43,7 +43,7 @@ remote = Remote()
 remote.name("RemoteNameHere")
 
 # Update Console & LED's
-print("C+ Remote Speed Controller - Version 1.0")
+print("C+ Remote Speed Controller - Version 1.1")
 print("\nRunning Setup...")
 hub.light.on(Color.RED)
 remote.light.on(Color.RED)
@@ -73,7 +73,11 @@ steering_motor_increment = 10 #e.g. set to 5 to have 16 steer angle steps | NOTE
 min_steering_angle = -80 #trial and error until you get it right, start low and increase by 10° until its right
 max_steering_angle = 80 #set to the same as min_steering_angle but a positive value - min_steering_angle should be a negitive value
 #the 80 value is about right for a 1x7 Technic gear rack (#87761) with a 12 tooth gear (#32270)
-
+steer_motor_homing_speed = 200 #you can speed up or slow down how fast the steering calibration takes,
+#Speed is also dependent on the duty cycle
+steer_motor_homing_duty_cycle = 50 #the higher the duty cycle to more power the motor applies to the system,
+#start at 5 and increase by 5 until just before you get clicky gears
+steer_motor_run_speed = 2400 #moves steer motor at this speed during normal play, 2400 is max speed of the motor
 
 # Initialize The Motors
 print("initializing motors...")
@@ -89,8 +93,8 @@ steer = Motor(Port.C, Direction.COUNTERCLOCKWISE)
 print("calibrating steering motor...")
 #this finds the endstops of the steering motor
 #lower duty cycle limit in increment of 5 if you have clicky gears
-left_end = steer.run_until_stalled(-200, then = Stop.HOLD, duty_limit = 50)
-right_end = steer.run_until_stalled(200, then = Stop.HOLD, duty_limit = 50)
+left_end = steer.run_until_stalled(-steer_motor_homing_speed, then = Stop.HOLD, duty_limit = steer_motor_homing_duty_cycle)
+right_end = steer.run_until_stalled(steer_motor_homing_speed, then = Stop.HOLD, duty_limit = steer_motor_homing_duty_cycle)
 # Reset steering angle
 steer.reset_angle((right_end - left_end) / 2)
 steer.run_target(speed = 200, target_angle = 0, wait = False)
@@ -199,7 +203,7 @@ while True:
         if Button.RIGHT_PLUS in pressed:
             if steer_angle > min_steering_angle:
                 steer_angle = steer_angle - steering_motor_increment
-                steer.run_target(2400, steer_angle, Stop.BRAKE, wait = False)
+                steer.run_target(steer_motor_run_speed, steer_angle, Stop.BRAKE, wait = False)
                 print("Steering motor at " + str(steer_angle))
                 wait(switch_debounce_time)
             else:
@@ -207,7 +211,7 @@ while True:
         if Button.RIGHT_MINUS in pressed:
             if steer_angle < max_steering_angle:
                 steer_angle = steer_angle + steering_motor_increment
-                steer.run_target(2400, steer_angle, Stop.BRAKE, wait = False)
+                steer.run_target(steer_motor_run_speed, steer_angle, Stop.BRAKE, wait = False)
                 print("Steering motor at " + str(steer_angle))
                 wait(switch_debounce_time)
             else:
@@ -219,7 +223,7 @@ while True:
             steer_angle -= 80
         if Button.RIGHT_MINUS in pressed:
             steer_angle += 80
-        steer.run_target(2400, steer_angle, Stop.BRAKE, wait = False)      
+        steer.run_target(steer_motor_run_speed, steer_angle, Stop.BRAKE, wait = False)      
 
 
     ### Emergency Stop - Left Or Right Red Button
